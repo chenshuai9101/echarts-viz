@@ -1,7 +1,13 @@
-"""
-$dir 模块 - ECharts for AI
-"""
+"""Engine module for ECharts for AI"""
+from .engine_factory import EngineFactory, EngineType
+from .echarts_engine import EChartsEngine
+from .matplotlib_engine import MatplotlibEngine
+from .d3_engine import D3Engine
+from .mermaid_engine import MermaidEngine
+from .playwright_engine import PlaywrightEngine
 
-__all__ = []
-
-# 占位文件，实际实现将在后续版本中完成
+__all__ = [
+    "EngineFactory", "EngineType",
+    "EChartsEngine", "MatplotlibEngine", "D3Engine",
+    "MermaidEngine", "PlaywrightEngine"
+]

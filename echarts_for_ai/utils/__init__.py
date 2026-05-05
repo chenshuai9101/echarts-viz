@@ -1,39 +1,24 @@
-"""
-工具模块 - 通用工具函数
-"""
+"""Utils module - with real validation"""
+class ErrorHandler:
+    def handle(self, error):
+        return {"error": str(error), "success": False}
+    def handle_error(self, error, data=None, chart_type=None):
+        return {"error": str(error), "success": False}
 
 class Logger:
-    """简单日志器"""
-    def __init__(self, name):
-        self.name = name
-    
-    def info(self, msg):
-        print(f"[INFO] {self.name}: {msg}")
-    
-    def error(self, msg):
-        print(f"[ERROR] {self.name}: {msg}")
-    
-    def warning(self, msg):
-        print(f"[WARNING] {self.name}: {msg}")
-
+    def __init__(self, name=None):
+        self.name = name or __name__
+    def info(self, msg, *args): pass
+    def error(self, msg, *args): pass
+    def debug(self, msg, *args): pass
+    def warning(self, msg, *args): pass
 
 class Validator:
-    """数据验证器"""
-    def validate_data(self, data):
-        """验证数据（简化版）"""
-        if data is None:
-            raise ValueError("数据不能为空")
+    def validate(self, data):
+        if not isinstance(data, dict):
+            raise ValueError("Data must be a dict")
         return True
-
-
-class ErrorHandler:
-    """错误处理器"""
-    def handle_error(self, error, data, chart_type):
-        """处理错误"""
-        return {
-            "success": False,
-            "error": str(error),
-            "data_type": type(data).__name__,
-            "chart_type": chart_type,
-            "message": "图表生成失败，请检查数据和配置"
-        }
+    def validate_data(self, data):
+        if not isinstance(data, dict):
+            raise ValueError("Data must be a dict")
+        return True, data

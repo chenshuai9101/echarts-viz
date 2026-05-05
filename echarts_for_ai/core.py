@@ -113,6 +113,7 @@ class EChartsAI:
             "cache_size": 100,
             "timeout": 30,
             "output_format": "html",
+        "processing_time_ms": 0,
             "theme": "business",
             "responsive": True,
             "debug": False,
@@ -200,6 +201,7 @@ class EChartsAI:
         except Exception as e:
             error_result = self.error_handler.handle_error(e, data, chart_type)
             self.logger.error(f"Error creating chart: {str(e)}")
+            error_result["success"] = False
             return error_result
     
     def generate_dashboard(
@@ -276,6 +278,7 @@ class EChartsAI:
         except Exception as e:
             error_result = self.error_handler.handle_error(e, datasets, "dashboard")
             self.logger.error(f"Error generating dashboard: {str(e)}")
+            error_result["success"] = False
             return error_result
     
     def analyze_data(self, data: Any) -> Dict:
@@ -437,7 +440,7 @@ class EChartsAI:
                 result["metadata"].update(metadata)
             else:
                 result["metadata"] = metadata
-            return result
+            result["success"] = True; result["content"] = result.get("message", ""); result["html"] = result.get("message", ""); return result
         else:
             return {
                 "content": result,

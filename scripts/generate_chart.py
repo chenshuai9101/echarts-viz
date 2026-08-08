@@ -6,9 +6,8 @@ ECharts图表生成核心脚本
 """
 
 import json
-import sys
 import re
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 
 # 图表类型推荐规则
 CHART_RECOMMENDATIONS = {

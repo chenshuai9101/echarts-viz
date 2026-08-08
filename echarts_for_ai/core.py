@@ -6,7 +6,7 @@ ECharts for AI 核心接口
 import json
 import time
 from typing import Dict, List, Any, Optional, Union
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from enum import Enum
 
 from .engines import EngineFactory

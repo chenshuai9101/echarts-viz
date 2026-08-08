@@ -2,7 +2,6 @@
 ECharts for AI 基础使用示例
 """
 
-import json
 from echarts_for_ai import EChartsAI, create_chart
 
 def demo_basic_chart():
@@ -73,7 +72,7 @@ def demo_data_analysis():
     
     # 分析数据
     analysis = viz.analyze_data(complex_data)
-    print(f"数据分析结果:")
+    print("数据分析结果:")
     print(f"  数据维度: {analysis.get('analysis', {}).get('dimensions', '未知')}")
     print(f"  推荐图表: {analysis.get('recommendations', [])[:3]}")
     

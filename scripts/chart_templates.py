@@ -5,7 +5,7 @@ ECharts图表模板库
 功能：预置各类图表模板配置
 """
 
-from typing import Dict, Any, List
+from typing import Dict, List
 
 # ==================== 折线图模板 ====================
 
